@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>12. 旺角（如果有时间） | Hong Kong Day Trip</title>
+    <link rel="stylesheet" href="../assets/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <a class="back" href="../index.html">&lt;- Back</a>
+        <h1>12. 旺角（如果有时间）</h1>
+      </header>
+
+      <section class="section">
+        <h2>Transport</h2>
+        <p>从尖沙咀乘荃湾线到旺角站，约10分钟</p>
+<p>旺角站B3口：出站上天桥~天桥上各路口都是机位，分分钟穿回王家卫导演电影</p>
+<p>太子站B2口：导航 金鱼街</p>
+      </section>
+
+      <section class="section">
+        <h2>Photo tips</h2>
+        <p>拍霓虹灯牌（西洋菜街附近）、密集人流，用长曝光拍出动感</p>
+      </section>
+
+      <section class="section">
+        <h2>Nearby food</h2>
+        <p>通达食店（油麻地）：李现同款鱼蛋、烧麦、肠粉</p>
+<p>义顺牛奶公司：双皮奶</p>
+<p>佳佳甜品（佐敦）：芝麻糊</p>
+<p>曲奇饼干：</p>
+<p>• 车厘哥夫（旺角联合广场）：朱古力曲奇</p>
+<p>• 珍妮曲奇聪明小熊（尖沙咀美丽都大厦）：四味奶油曲奇</p>
+      </section>
+
+      
+      <section class="section">
+  <h2>Reference photos</h2>
+  <div class="img-grid">
+    <figure class="img-item"><img loading="lazy" src="../assets/images/12-1-1旺角.png" alt="12-1-1旺角" /><figcaption>12-1-1旺角</figcaption></figure>
+  </div>
+</section>
+      <div class="next-nav">
+        <a href="place-11.html" class="next-btn">← 上一站</a>
+        <a href="place-13.html" class="next-btn">下一站 →</a>
+      </div>
+
+      <div class="notes-section">
+        <div class="notes-label">备注（自动保存）</div>
+        <textarea class="notes-textarea" id="notes" placeholder="在这里输入备注..."></textarea>
+      </div>
+    </main>
+    <div id="imageModal" class="modal">
+      <span class="modal-close">&times;</span>
+      <div class="modal-content">
+        <img id="modalImage" class="modal-image" src="" alt="Enlarged image" />
+      </div>
+    </div>
+
+    <script>
+      const imageModal = document.getElementById('imageModal');
+      const modalImage = document.getElementById('modalImage');
+      const modalClose = document.querySelector('.modal-close');
+
+      document.querySelectorAll('.img-item img').forEach(function(img) {
+        img.classList.add('clickable-img');
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', function() {
+          modalImage.src = this.src;
+          imageModal.classList.add('show');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      modalClose.addEventListener('click', function() {
+        imageModal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+      });
+
+      imageModal.addEventListener('click', function(e) {
+        if (e.target === this) {
+          imageModal.classList.remove('show');
+          document.body.style.overflow = 'auto';
+        }
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          imageModal.classList.remove('show');
+          document.body.style.overflow = 'auto';
+        }
+      });
+      // Notes functionality with localStorage
+      const notesTextarea = document.getElementById('notes');
+      const storageKey = 'hk-trip-notes-place-12';
+
+      const savedNotes = localStorage.getItem(storageKey);
+      if (savedNotes) {
+        notesTextarea.value = savedNotes;
+      }
+
+      notesTextarea.addEventListener('input', function() {
+        localStorage.setItem(storageKey, this.value);
+      });
+    </script>
+  </body>
+</html>

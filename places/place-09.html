@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>9. 天星小轮
+（维港） | Hong Kong Day Trip</title>
+    <link rel="stylesheet" href="../assets/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <a class="back" href="../index.html">&lt;- Back</a>
+        <h1>9. 天星小轮
+（维港）</h1>
+      </header>
+
+      <section class="section">
+        <h2>Transport</h2>
+        <p>港铁：坚尼地城站→中环站（港岛线，15 分钟），步行至中环天星码头</p>
+<p>或叮叮车：坚尼地城→中环毕打街（25 分钟），步行至码头</p>
+      </section>
+
+      <section class="section">
+        <h2>Photo tips</h2>
+        <p>在船上用窗框构图，或在码头栏杆边拍人像剪影</p>
+      </section>
+
+      <section class="section">
+        <h2>Nearby food</h2>
+        <p>富豪雪糕车（尖沙咀码头）：软雪糕（李现吃过）</p>
+      </section>
+
+      
+      <section class="section">
+  <h2>Reference photos</h2>
+  <div class="img-grid">
+    <figure class="img-item"><img loading="lazy" src="../assets/images/9-2-1天星小轮.png" alt="9-2-1天星小轮" /><figcaption>9-2-1天星小轮</figcaption></figure>
+  </div>
+</section>
+
+      <div class="next-nav">
+        <a href="place-08.html" class="next-btn">← 上一站</a>
+        <a href="place-10.html" class="next-btn">下一站 →</a>
+      </div>
+
+      <div class="notes-section">
+        <div class="notes-label">备注（自动保存）</div>
+        <textarea class="notes-textarea" id="notes" placeholder="在这里输入备注..."></textarea>
+      </div>
+    </main>
+    <div id="imageModal" class="modal">
+      <span class="modal-close">&times;</span>
+      <div class="modal-content">
+        <img id="modalImage" class="modal-image" src="" alt="Enlarged image" />
+      </div>
+    </div>
+
+    <script>
+      const imageModal = document.getElementById('imageModal');
+      const modalImage = document.getElementById('modalImage');
+      const modalClose = document.querySelector('.modal-close');
+
+      document.querySelectorAll('.img-item img').forEach(function(img) {
+        img.classList.add('clickable-img');
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', function() {
+          modalImage.src = this.src;
+          imageModal.classList.add('show');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      modalClose.addEventListener('click', function() {
+        imageModal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+      });
+
+      imageModal.addEventListener('click', function(e) {
+        if (e.target === this) {
+          imageModal.classList.remove('show');
+          document.body.style.overflow = 'auto';
+        }
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          imageModal.classList.remove('show');
+          document.body.style.overflow = 'auto';
+        }
+      });
+      // Notes functionality with localStorage
+      const notesTextarea = document.getElementById('notes');
+      const storageKey = 'hk-trip-notes-place-09';
+
+      const savedNotes = localStorage.getItem(storageKey);
+      if (savedNotes) {
+        notesTextarea.value = savedNotes;
+      }
+
+      notesTextarea.addEventListener('input', function() {
+        localStorage.setItem(storageKey, this.value);
+      });
+    </script>
+  </body>
+</html>
